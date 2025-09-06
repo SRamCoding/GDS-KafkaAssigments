@@ -37,6 +37,7 @@ El flujo completo:
    Copy-Item .env.example .env   # PowerShell
 
 2. Edita .env con tus credenciales reales:
+    ```bash
     # Kafka / Confluent Cloud
     KAFKA_BOOTSTRAP=pkc-xxxxxx.confluent.cloud:9092
     KAFKA_API_KEY=tu_api_key
@@ -60,10 +61,13 @@ El flujo completo:
 
 ## ¿CÓMO LO PRUEBO?
 1. Construir la imagen:
+    ```bash
     docker-compose build
 
 2. Levantar la app con 5 consumers:
+    ```bash
     docker-compose up --scale consumer=5
 
 3. Parar y limpiar:
+    ```bash
     docker-compose down
