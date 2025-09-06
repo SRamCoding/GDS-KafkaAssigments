@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  app:
+    build: .
+    container_name: kafka_app
+    env_file:
+      - .env
+    command: sh -c "python init_db.py && python producer.py"
+  
+  consumer:
+    build: .
+    env_file:
+      - .env
+    command: python consumer.py
+    depends_on:
+      - app
